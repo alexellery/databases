@@ -1,0 +1,43 @@
+dina@dina-VirtualBox:~$ mysql
+
+(приветствие mysql вырезано)
+
+mysql> create database example;
+Query OK, 1 row affected (0,01 sec)
+
+mysql> create table if not exists users(id INT UNSIGNED, name CHAR(30));
+Query OK, 0 rows affected (0,07 sec)
+
+mysql> create database sample;
+Query OK, 1 row affected (0,01 sec)
+
+mysql> exit
+Bye
+dina@dina-VirtualBox:~$ mysqldump example > example.sql
+
+dina@dina-VirtualBox:~$ mysql sample < example.sql
+
+dina@dina-VirtualBox:~$ mysql
+
+(приветствие mysql вырезано)
+
+mysql> use example;
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_example |
++-------------------+
+| users             |
++-------------------+
+1 row in set (0,00 sec)
+
+mysql> use sample;
+
+Database changed
+mysql> show tables;
++------------------+
+| Tables_in_sample |
++------------------+
+| users            |
++------------------+
+1 row in set (0,00 sec)
